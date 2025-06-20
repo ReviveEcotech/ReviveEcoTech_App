@@ -312,11 +312,31 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 5,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: const [
-                      ShortcutButton(icon: Icons.list, label: 'Price List \n'),
-                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up'),
-                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking'),
-                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign'),
+                    children: [
+                      ShortcutButton(icon: Icons.list, label: 'Price List \n',onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => pricelist()),
+                        );
+                      },),
+                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up',onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => pricelist()),
+                        );
+                      },),
+                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking',onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => pricelist()),
+                        );
+                      },),
+                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign',onTap: (){
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => pricelist()),
+                        );
+                      },),
                     ],
                   ),
                 ),
@@ -443,7 +463,7 @@ class StatCard extends StatelessWidget {
 class ShortcutButton extends StatelessWidget {
   final IconData icon;
   final String label;
-  const ShortcutButton({required this.icon, required this.label, super.key});
+  const ShortcutButton({required this.icon, required this.label,  required Null Function() onTap,super.key,});
 
   @override
   Widget build(BuildContext context) {
