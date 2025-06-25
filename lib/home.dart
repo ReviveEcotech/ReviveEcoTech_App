@@ -313,11 +313,11 @@ class _HomePageState extends State<HomePage> {
                     mainAxisSpacing: 5,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    children: [
-                      ShortcutButton(icon: Icons.list, label: 'Price List \n',),
-                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up',),
-                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking',),
-                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign',),
+                    children: const [
+                      ShortcutButton(icon: Icons.list, label: 'Price List \n'),
+                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up'),
+                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking'),
+                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign'),
                     ],
                   ),
                 ),
@@ -444,24 +444,28 @@ class StatCard extends StatelessWidget {
 class ShortcutButton extends StatelessWidget {
   final IconData icon;
   final String label;
-  const ShortcutButton({required this.icon, required this.label,});
+  const ShortcutButton({required this.icon, required this.label, super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: const Color(0xFFa6cb56),
-            borderRadius: BorderRadius.circular(12),
+    return InkWell(
+      onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: const Color(0xFFa6cb56),
+              borderRadius: BorderRadius.circular(12),
+            ),
+            padding: const EdgeInsets.all(8),
+            child: Icon(icon, size: 28, color: Colors.white),
           ),
-          padding: const EdgeInsets.all(8),
-          child: Icon(icon, size: 28, color: Colors.white),
-        ),
-        const SizedBox(height: 3),
-        Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 12)),
-      ],
+          const SizedBox(height: 3),
+          Text(label, textAlign: TextAlign.center, style: const TextStyle(fontSize: 12)),
+        ],
+      ),
     );
   }
 }
