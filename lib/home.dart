@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:revive_eco_tech_app/Schedule_pickup.dart';
 import 'package:revive_eco_tech_app/pricelist.dart';
 import 'package:revive_eco_tech_app/setting.dart';
 import 'package:revive_eco_tech_app/profile.dart';
@@ -313,30 +314,10 @@ class _HomePageState extends State<HomePage> {
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
                     children: [
-                      ShortcutButton(icon: Icons.list, label: 'Price List \n',onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => pricelist()),
-                        );
-                      },),
-                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up',onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => pricelist()),
-                        );
-                      },),
-                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking',onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => pricelist()),
-                        );
-                      },),
-                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign',onTap: (){
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => pricelist()),
-                        );
-                      },),
+                      ShortcutButton(icon: Icons.list, label: 'Price List \n',),
+                      ShortcutButton(icon: Icons.schedule, label: 'Schedule \n Pick-up',),
+                      ShortcutButton(icon: Icons.track_changes, label: 'Live \n Tracking',),
+                      ShortcutButton(icon: Icons.campaign, label: 'Society \n Campaign',),
                     ],
                   ),
                 ),
@@ -463,7 +444,7 @@ class StatCard extends StatelessWidget {
 class ShortcutButton extends StatelessWidget {
   final IconData icon;
   final String label;
-  const ShortcutButton({required this.icon, required this.label,  required Null Function() onTap,super.key,});
+  const ShortcutButton({required this.icon, required this.label,});
 
   @override
   Widget build(BuildContext context) {

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:revive_eco_tech_app/Schedule_pickup.dart';
 import 'history.dart';
 
 class profile extends StatefulWidget {
@@ -333,6 +334,12 @@ class _profileState extends State<profile> {
               ),
             ),
             GestureDetector(
+              onTap: (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SchedulePickup()),
+                );
+              },
               child: Padding(
                 padding: const EdgeInsets.fromLTRB(20, 10, 20, 10),
                 child: Container(
