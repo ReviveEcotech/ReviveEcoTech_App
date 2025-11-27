@@ -7,6 +7,7 @@ import 'package:revive_eco_tech_app/pricelist.dart';
 import 'package:revive_eco_tech_app/setting.dart';
 import 'package:revive_eco_tech_app/profile.dart';
 import 'Schedule_Pickup.dart';
+import 'notification.dart';
 import 'widgets/pickup_tracker.dart';
 import 'package:revive_eco_tech_app/all_trackers_page.dart';
 import 'package:revive_eco_tech_app/society_campaign_page.dart';
@@ -641,7 +642,14 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 Padding(
                   padding: const EdgeInsets.only(left: 8.0),
                   child:
-                  Icon(Icons.notifications, color: kAccentColor, size: 30),
+                  GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => NotificationPage()),
+                        ).then((_) => _refreshTrackerData());
+                      },
+                      child: Icon(Icons.notifications, color: kAccentColor, size: 30)),
                 ),
               ],
             ),
